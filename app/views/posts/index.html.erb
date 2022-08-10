@@ -1,0 +1,39 @@
+<div class="container">
+
+<% flash.each do |type, msg| %>
+<div class="alert alert-info">
+      <%= msg %>
+</div>
+<% end %>
+
+<h3>List of Post</h3>
+<%= link_to "Create a new post", posts_create_path %> 
+<%# permite crear un boton con un link %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Image url</th>
+      <th scope="col">Content</th>
+      <th scope="col">Created at</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @posts.each do |post| %>
+    <tr>
+      <th scope="row"><%= post.id %> </th>
+      <td><%= post.title %></td>
+      <td> <img src=" <%=post.image_url %>" <%= post.title %> width="50" heigth="50"></td>
+      <%# poner una imagen  %>
+
+      <td><%= post.content %></td>
+       <td><%= post.created_at %></td>
+       <td></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+</div>
